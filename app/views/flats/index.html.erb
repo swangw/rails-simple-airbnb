@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All our Flats</h1>
+
+<p>All 15 flats.</p>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Price per night</th>
+      <th>Number of guests</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flats.each do |flat| %>
+      <tr>
+        <td><%= flat.name %></td>
+        <td><%= flat.address %></td>
+        <td><%= flat.description %></td>
+        <td><%= flat.price_per_night %></td>
+        <td><%= flat.number_of_guests %></td>
+        <td><%= link_to 'Show', flat %></td>
+        <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
+        <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->
+
+<div class="row">
+<% @flats.each do |flat| %>
+  <div class="col-lg-4">
+    <div class="card mb-3">
+      <img class="card-img-top" src="https://source.unsplash.com/1600x900/?livingroom<%= flat.id %>" alt="">
+      <div class="card-body">
+        <h5 class="card-title bold"><strong><%= flat.name %></strong></h5>
+        <p class="card-text"><%= flat.address %></p>
+        <div class="d-flex">
+          <i class="fas fa-user-friends mr-1"></i>
+          <p class="mr-3"><%= flat.number_of_guests %></p>
+          <i class="fas fa-euro-sign mr-1"></i>
+          <p><%= flat.price_per_night %></p>
+        </div>
+        <div class="d-flex">
+          <div class="mr-3"><%= link_to "More info", flat_path(flat) %></div>
+          <div class="mr-3"><%= link_to "Edit", edit_flat_path(flat), class: "text-warning" %></div>
+          <%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<br>

@@ -1,0 +1,25 @@
+<h1>Editing Flat</h1>
+
+<%#= render 'form', flat: @flat %>
+
+<%= simple_form_for @flat do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.input :address %>
+
+  <%= f.input :description, as: :text %>
+
+  <%= f.input :description, as: :text %>
+
+  <%= f.input :price_per_night, as: :integer %>
+
+  <%= f.input :number_of_guests, as: :integer %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-danger" %>
+
+<% end %>
